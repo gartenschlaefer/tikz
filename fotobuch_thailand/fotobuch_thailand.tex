@@ -1,0 +1,283 @@
+% --
+% thailand fotobuch
+
+% document style
+\documentclass{book}
+
+% layout
+\usepackage[a4paper, landscape, twoside, ignoreall, bindingoffset=25mm, total={271mm, 210mm}, inner=0mm, top=13.5mm]{geometry}
+
+% sidemargins never work properly
+\setlength{\evensidemargin}{-32mm}
+\setlength{\oddsidemargin}{-6mm}
+
+% include graphics
+\usepackage{graphicx}
+
+% complex image tool
+\usepackage{tikz}
+
+
+
+
+% tikz stuff
+\input{my_tikz_stuff.tex}
+
+
+% alternative one-liner
+% \tikz{\node at (0, 0) {\includegraphics[width=1.0\textwidth]{./figs/Thai-430.jpg}};}
+
+
+% --
+% document
+
+\begin{document}
+
+% title
+\begin{tikzpicture}
+  %%%
+  % title
+  %%%
+
+  % temple tanja
+  \node at (0, 0) {\includegraphics[width=1.0\textwidth]{./figs/Thai-430.jpg}};
+  \node at (0, -9) [my title] {\huge Thailand Reise 2020\\[2ex]\Large 04.02.2020 - 18.02.2020};
+  %\node at (0, 9) [fill=black, inner sep=5mm, text=white] {\Large\thepage};
+\end{tikzpicture}
+
+
+% title
+\newpage
+\begin{tikzpicture}
+  %%%
+  % title
+  %%%
+
+  % temple tanja
+  \node at (current page.center) [overlay] {\includegraphics[width=1.16\textwidth]{./figs/Thai-430.jpg}};
+  \node at (current page.south) [my title, anchor=south, yshift=5mm, overlay] {\huge Thailand Reise 2020\\[2ex]\Large 04.02.2020 - 18.02.2020};
+\end{tikzpicture}
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % travel to thailand
+  %%%
+
+  % background
+  \node at (current page.center) (car) {\includegraphics[width=1.0\textwidth]{./figs/Thai-2.jpg}};
+
+  % little ones
+  \node at (car.north west) (michi) [pictureframe, overlay, anchor=north west] {\includegraphics[height=0.25\textheight]{./figs/Thai-0.jpg}};
+  \node at (car.south east) (tanja) [pictureframe, overlay, anchor=south east] {\includegraphics[height=0.25\textheight]{./figs/Thai-1.jpg}};
+
+  % text
+  \node at ([yshift=7mm] michi.south) {\Large Michael weist uns den weg};
+  \node at ([yshift=7mm] tanja.south) {\Large Tanja schnallts und ist aufgeregt};
+\end{tikzpicture}
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % first temple 1
+  %%%
+  \node at (current page.west) (mtor) [pictureframe] {\includegraphics[height=0.8\textheight]{./figs/Thai-8.jpg}};
+  \node at (mtor.north east) (t temple1) [pictureframe, anchor=north west, shift={(1, 0)}] {\includegraphics[height=0.32\textheight]{./figs/Thai-20.jpg}};
+  \node at (mtor.south east) (c buddha) [pictureframe, anchor=south west, shift={(1, 0)}] {\includegraphics[height=0.35\textheight]{./figs/Thai-33.jpg}};
+\end{tikzpicture}
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % first temple 2
+  %%%
+  \node at (current page.center) (backsteinblumen) {\includegraphics[width=1.0\textwidth]{./figs/Thai-25.jpg}};
+  \node at (backsteinblumen.north east) (guardedtor) [pictureframe, anchor=north east] {\includegraphics[height=0.4\textheight]{./figs/Thai-26.jpg}};
+  \node at (backsteinblumen.north west) (portalroof) [pictureframe, anchor=north west] {\includegraphics[height=0.3\textheight]{./figs/Thai-27.jpg}};
+  \node at (backsteinblumen.south west) (portal) [pictureframe, anchor=south west, shift={(3, 0)}] {\includegraphics[height=0.3\textheight]{./figs/Thai-28.jpg}};
+\end{tikzpicture}
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % first temple 2
+  %%%
+  \node at (current page.center) (backsteinblumen) {\includegraphics[width=1.0\textwidth]{./figs/Thai-25.jpg}};
+\end{tikzpicture}
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % first temple 3
+  %%%
+  \node at (current page.center) (stonelion) {\includegraphics[width=1.0\textwidth]{./figs/Thai-30.jpg}};
+  %\node at (6, 0) (buddha) [pictureframe] {\includegraphics[height=0.4\textheight]{./figs/Thai-31.jpg}};
+  \node at (stonelion.north west) (steinmann) [pictureframe empty, anchor=north west] {\includegraphics[height=0.3\textheight]{./figs/Thai-23.jpg}};
+  \node at (stonelion.south east) (lion portal) [pictureframe empty, anchor=south east] {\includegraphics[height=0.35\textheight]{./figs/Thai-34.jpg}};
+\end{tikzpicture}
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % first temple 3
+  %%%
+  \node at (current page.center) (stonelion) {\includegraphics[width=1.0\textwidth]{./figs/Thai-30.jpg}};
+
+  \node at (stonelion.north west) (steinmann) [pictureframe, anchor=north west] {\includegraphics[height=0.3\textheight]{./figs/Thai-23.jpg}};
+  \node at (stonelion.south east) (lion portal) [pictureframe, anchor=south east] {\includegraphics[height=0.35\textheight]{./figs/Thai-34.jpg}};
+\end{tikzpicture}
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % first temple 3
+  %%%
+  \node at (current page.center) (stonelion) {\includegraphics[width=1.0\textwidth]{./figs/Thai-30.jpg}};
+\end{tikzpicture}
+
+
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % first temple 4
+  %%%
+  \node at (current page.center) (lilie) {\includegraphics[width=1.0\textwidth]{./figs/Thai-41.jpg}};
+  \node at (lilie.north east) (t areal) [pictureframe, anchor=north east] {\includegraphics[height=0.35\textheight]{./figs/Thai-36.jpg}};
+  \node at (lilie.north west) (tm twink) [pictureframe, anchor=north west] {\includegraphics[height=0.3\textheight]{./figs/Thai-37.jpg}};
+  \node at (lilie.south west) (tm wink) [pictureframe, anchor=south west] {\includegraphics[height=0.3\textheight]{./figs/Thai-38.jpg}};
+\end{tikzpicture}
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % first temple 5
+  %%%
+  \node at (current page.center) (hof) {\includegraphics[width=1.0\textwidth]{./figs/Thai-48.jpg}};
+  \node at (hof.north east) (row buddha) [pictureframe, anchor=north east] {\includegraphics[height=0.25\textheight]{./figs/Thai-45.jpg}};
+  \node at (hof.south west) (buddha hall) [pictureframe, anchor=south west] {\includegraphics[height=0.25\textheight]{./figs/Thai-31.jpg}};
+\end{tikzpicture}
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % first temple 6
+  %%%
+  \node at (current page.center) (hoflion) {\includegraphics[width=1.0\textwidth]{./figs/Thai-49.jpg}};
+  \node at (hoflion.north east) (tower1) [pictureframe, anchor=north east] {\includegraphics[height=0.25\textheight]{./figs/Thai-54.jpg}};
+  \node at (hoflion.south west) (tower2) [pictureframe, anchor=south west] {\includegraphics[height=0.25\textheight]{./figs/Thai-55.jpg}};
+\end{tikzpicture}
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % first temple 7
+  %%%
+  %\node at (current page.north east) (catplace) [pictureframe, anchor=north east] {\includegraphics[width=0.5\textwidth]{./figs/Thai-58.jpg}};
+  \node at (current page.center) (catplace) {\includegraphics[width=1.0\textwidth]{./figs/Thai-58.jpg}};
+  \node at (catplace.south east) (tower1) [pictureframe, anchor=south east] {\includegraphics[width=0.3\textwidth]{./figs/Thai-66.jpg}};
+\end{tikzpicture}
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % first temple 8
+  %%%
+  %\node at (current page.north east) (catplace) [pictureframe, anchor=north east] {\includegraphics[width=0.5\textwidth]{./figs/Thai-58.jpg}};
+  \node at (current page.south west) (c fish) [pictureframe, anchor=south west] {\includegraphics[width=0.45\textwidth]{./figs/Thai-73.jpg}};
+  \node at (current page.north west) (tc monk) [pictureframe, anchor=north west] {\includegraphics[width=0.45\textwidth]{./figs/Thai-62.jpg}};
+  \node at (current page.north east) (c squad) [pictureframe, anchor=north east] {\includegraphics[width=0.4\textwidth]{./figs/Thai-72.jpg}};
+  \node (c glasses) [pictureframe, right=of tc monk] {\includegraphics[width=0.2\textwidth]{./figs/Thai-64.jpg}};
+  \node (c walk) [pictureframe, below=of c glasses] {\includegraphics[width=0.4\textwidth]{./figs/Thai-70.jpg}};
+\end{tikzpicture}
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % first temple 9 buddha
+  %%%
+  \node at (current page.center) (bigbuddha) {\includegraphics[width=1.0\textwidth]{./figs/Thai-84.jpg}};
+  \node at (bigbuddha.south east) (cm hug) [pictureframe, anchor=south east] {\includegraphics[width=0.45\textwidth]{./figs/Thai-79.jpg}};
+  \node at (bigbuddha.south west) (c look) [pictureframe, anchor=south west] {\includegraphics[width=0.3\textwidth]{./figs/Thai-85.jpg}};
+\end{tikzpicture}
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % royal place 1
+  %%%
+  \node at (current page.center) (tm rest) {\includegraphics[width=1.0\textwidth]{./figs/Thai-87.jpg}};
+  %\node at (tm rest.south east) (goldenone) [pictureframe, anchor=south east] {\includegraphics[width=0.4\textwidth]{./figs/Thai-88.jpg}};
+\end{tikzpicture}
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % royal place golden
+  %%%
+  \node at (current page.center) (gwalk) {\includegraphics[width=1.0\textwidth]{./figs/Thai-90.jpg}};
+  \node at (gwalk.south east) (demons) [pictureframe, anchor=south east] {\includegraphics[width=0.4\textwidth]{./figs/Thai-89.jpg}};
+  \node at (gwalk.north east) (thand) [pictureframe, anchor=north east] {\includegraphics[width=0.25\textwidth]{./figs/Thai-105.jpg}};
+\end{tikzpicture}
+
+
+\newpage
+\begin{tikzpicture}
+  %%%
+  % royal place golden
+  %%%
+  \node at (current page.center) (goldenone) {\includegraphics[width=1.0\textwidth]{./figs/Thai-88.jpg}};
+  \node at (goldenone.center) (tc sit) {\includegraphics[width=0.3\textwidth]{./figs/Thai-91.jpg}};
+  \node (tm sit) [right=of tc sit] {\includegraphics[width=0.3\textwidth]{./figs/Thai-95.jpg}};
+\end{tikzpicture}
+
+
+\end{document}
+
+
+
+
+% --
+% test
+
+% % foto
+% \newpage
+% \begin{tikzpicture}
+
+%   % michi picture
+%   \node at (0, 0) (back) {\includegraphics[width=1.0\textwidth]{./figs/Thai-2.jpg}};
+
+%   \node at (-5, 4) (michi1) {\includegraphics[height=0.25\textheight]{./figs/Thai-0.jpg}};
+%   \node at (5, 4) (michi2) [fill, white, inner sep=5mm, ] {\includegraphics[height=0.25\textheight]{./figs/Thai-0.jpg}};
+%   \node at (-5, -4) (michi3) [fill, white, inner sep=5mm, ] {\includegraphics[height=0.25\textheight]{./figs/Thai-0.jpg}};
+%   \node at (5, -4) (michi4) [pictureframe] {\includegraphics[height=0.25\textheight]{./figs/Thai-0.jpg}};
+% \end{tikzpicture}
+
+
+% % foto
+% \newpage
+% \begin{tikzpicture}
+
+%   % michi picture
+%   \node at (0, 0) (back) {\includegraphics[width=1.0\textwidth]{./figs/Thai-2.jpg}};
+
+%   \node at (-5, 4) (michi1) [pictureframe11] {\includegraphics[height=0.25\textheight]{./figs/Thai-0.jpg}};
+%   \node at (5, 4) (michi2) [pictureframe12] {\includegraphics[height=0.25\textheight]{./figs/Thai-0.jpg}};
+%   \node at (-5, -4) (michi3) [pictureframe13] {\includegraphics[height=0.25\textheight]{./figs/Thai-0.jpg}};
+%   \node at (5, -4) (michi4) [pictureframe14] {\includegraphics[height=0.25\textheight]{./figs/Thai-0.jpg}};
+
+%   % text
+%   \node at ([yshift=5mm]michi1.south) {\Large michi};
+% \end{tikzpicture}

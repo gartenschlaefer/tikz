@@ -1,0 +1,82 @@
+% --
+% tikz stuff used
+
+
+% --
+% packages
+
+% commands like left=of ...
+\usetikzlibrary{positioning}
+
+% arrow styles
+\usetikzlibrary{arrows.meta}
+
+% for layers
+\usetikzlibrary{backgrounds, fit}
+
+% animations?
+\usetikzlibrary {animations}
+
+% for coordinates
+\usetikzlibrary{calc}
+
+% fading and patterns
+\usetikzlibrary{fadings, patterns}
+
+% shadows
+\usetikzlibrary{shadows}
+\usetikzlibrary{shadows.blur}
+
+% remove page numbers
+\pagestyle{empty}
+
+
+% --
+% colors
+
+\definecolor{jorange}{rgb}{1, 0.5, 0.5}
+%\definecolor{sepia_high}{HTML}{ffffe0}
+\definecolor{sepia_high}{HTML}{fffff0}
+
+\colorlet{horange}{orange!60}
+
+
+% --
+% tikz settings
+
+% remember picture (used for cross-referencing)
+\tikzset{every picture/.append style={remember picture}}
+
+
+
+% --
+% tikz styles
+
+% blur shadow
+\tikzset{my frame shade/.style={
+  blur shadow={shadow opacity=85, shadow blur steps=5, shadow blur extra rounding=1pt, shadow xshift=2mm, shadow yshift=-2mm, shadow blur radius=1mm}}
+}
+
+\tikzset{my frame shade weak/.style={
+  blur shadow={shadow opacity=80, shadow blur steps=5, shadow blur extra rounding=1pt, shadow xshift=1mm, shadow yshift=-1mm, shadow blur radius=1mm}}
+}
+
+% title frame
+\tikzset{my title/.style={rectangle, draw=jorange, line width=4pt, fill=white, inner sep=3mm, align=center, my frame shade}}
+
+% picture frame
+\tikzset{pictureframe/.style={rectangle, fill=sepia_high, inner sep=5mm, text depth=10mm, my frame shade}}
+\tikzset{pictureframe empty/.style={my frame shade weak}}
+
+
+% try some styles
+\tikzset{pictureframe1/.style={rectangle, fill=white, inner sep=5mm, text depth=10mm, my frame shade}}
+\tikzset{pictureframe2/.style={rectangle, fill=white, inner xsep=5mm, inner ysep=10mm, my frame shade}}
+\tikzset{pictureframe3/.style={rectangle, fill=white, inner xsep=10mm, inner ysep=5mm, my frame shade}}
+\tikzset{pictureframe4/.style={rectangle, fill=white, inner sep=5mm, my frame shade}}
+
+
+\tikzset{pictureframe11/.style={rectangle, draw=horange, line width=6pt, fill=white, inner sep=5mm, text depth=10mm, my frame shade}}
+\tikzset{pictureframe12/.style={rectangle, fill=sepia_high, inner sep=5mm, text depth=10mm, my frame shade}}
+\tikzset{pictureframe13/.style={rectangle, fill=jorange, inner sep=5mm, text depth=10mm, my frame shade}}
+\tikzset{pictureframe14/.style={rectangle, fill=blue!30, inner sep=5mm, text depth=10mm, my frame shade}}
