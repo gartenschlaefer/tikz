@@ -1,5 +1,5 @@
 % --
-% thailand fotobuch
+% tikz lab
 
 % document style
 \documentclass{book}
@@ -45,7 +45,7 @@
 % --
 % tikz settings
 
-\tikzset{help lines/.style={color=blue!60!orange, thick}}
+\tikzset{helplines/.style={color=blue!60!orange, thick}}
 \tikzset{rectStyle/.style={rectangle, draw=blue!50!green!50!black, fill=blue!50!green!25!white, thick, inner sep=0pt, minimum size=1cm}}
 \tikzset{circStyle/.style={circle, draw=blue!80!green!50!black, fill=blue!70!green!25!white, thick, inner sep=0pt, minimum size=1cm}}
 \tikzset{pre/.style={<-,shorten <=1pt,>={Stealth[round]},semithick}, post/.style={->,shorten >=1pt,>={Stealth[round]},semithick}}
@@ -71,7 +71,7 @@
 % grid
 \tikz{\draw (0, 0) rectangle (1, 2)}
 \tikz{\draw[step=0.25] (0, 0) grid (1, 2)}
-\tikz{\draw[help lines] (0, 0) grid (2, 2)}
+\tikz{\draw[helplines] (0, 0) grid (2, 2)}
 \tikz{\shade (0, 0) rectangle (1, 1)}
 
 % even odd
@@ -184,7 +184,7 @@
 
 
 % blur shadow
-\tikzset{my frame shade/.style={blur shadow={shadow opacity=90, shadow blur steps=5, shadow blur extra rounding=1pt, shadow xshift=2mm, shadow yshift=-2mm, shadow scale=1.0}, shadow blur radius=1mm, shadow blur steps=10}}
+\tikzset{myframeshade/.style={blur shadow={shadow opacity=90, shadow blur steps=5, shadow blur extra rounding=1pt, shadow xshift=2mm, shadow yshift=-2mm, shadow scale=1.0}, shadow blur radius=1mm, shadow blur steps=10}}
 
 \begin{tikzpicture}
     
@@ -199,7 +199,7 @@
 
   % pattern
   \node at (6, 0) [rectangle, minimum size=3cm, pattern=checkerboard, pattern color=red] {};
-  \node at (6, 0) (target) [draw=blue!50, line width=0.5mm, fill=blue, rectangle, minimum size=2cm, my frame shade] {};
+  \node at (6, 0) (target) [draw=blue!50, line width=0.5mm, fill=blue, rectangle, minimum size=2cm, myframeshade] {};
 
 
 \end{tikzpicture}
@@ -270,9 +270,9 @@
   \node at (5, 0) (pattern) [rectangle, minimum size=3cm, pattern=checkerboard, pattern color=red] {};
   \node at (pattern.north) [rectangle, fill=blue!30, inner sep=10pt, anchor=north] {};
   \node at (pattern.south) [rectangle, fill=blue!30, inner sep=10pt] {};
-  \node at (pattern.west) [rectangle, draw, line width=5pt, fill=blue!30, inner sep=10pt, anchor=west, my frame shade] {};
+  \node at (pattern.west) [rectangle, draw, line width=5pt, fill=blue!30, inner sep=10pt, anchor=west, myframeshade] {};
   \node at (pattern.west) [rectangle, fill=blue!30, inner sep=10pt, anchor=west, yshift=1cm] {};
-  \node at (pattern.east) [rectangle, draw, line width=5pt, fill=blue!30, inner sep=10pt, anchor=east, my frame shade] {};
+  \node at (pattern.east) [rectangle, draw, line width=5pt, fill=blue!30, inner sep=10pt, anchor=east, myframeshade] {};
 \end{tikzpicture}
 
 
