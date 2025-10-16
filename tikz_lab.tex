@@ -40,6 +40,7 @@
 \definecolor{vetmedbrown}{HTML}{a86044}
 \definecolor{vetmedgray}{HTML}{757575}
 \definecolor{vetmedgreen}{HTML}{286e53}
+\definecolor{imagebg}{HTML}{ececec}
 
 
 % --
@@ -84,6 +85,15 @@
 % foreach
 \foreach \x in {1, 2, 3} {$x = \x, $}
 \tikz{\foreach \x in {-1, -0.5, ..., 1} {\draw (\x, 0) -- (\x, 1);}}
+
+% nodes
+\begin{tikzpicture}
+  \foreach \x in {0.5, 1, ..., 2} 
+  {
+    \fill [color=red, draw=black] (-\x, -\x) rectangle +(2, 2);
+  }
+  %\draw (0.5, 0.5) node [fill=yellow] {node 1} -- (1.5, 1.5) node {node 2};
+\end{tikzpicture}
 
 % nodes
 \begin{tikzpicture}
@@ -201,7 +211,41 @@
   \node at (6, 0) [rectangle, minimum size=3cm, pattern=checkerboard, pattern color=red] {};
   \node at (6, 0) (target) [draw=blue!50, line width=0.5mm, fill=blue, rectangle, minimum size=2cm, myframeshade] {};
 
+\end{tikzpicture}
 
+
+% convolutional model -> let path coordinate
+\begin{tikzpicture}[every node/.style={minimum size=0, inner sep=0pt}]
+  % coordinates
+  \coordinate (zero) at (0, 0);
+
+  % main nodes
+  \node (imgbg) at (zero) [rectangle, minimum width=400pt, minimum height=150pt] {};
+  \node (spec) at (imgbg.west) [anchor=west, xshift=10pt,fill=red, draw=black, rectangle, minimum width=75pt, minimum height=40pt,] {};
+  \node (conva) at (spec.east) [anchor=west, xshift=20pt, fill=red, draw=black, rectangle, minimum width=55pt, minimum height=20pt] {};
+  \node (convb) at (conva.east) [anchor=west, xshift=40pt, fill=red, draw=black, rectangle, minimum width=30pt, minimum height=5pt] {};
+  \node (poll) at (convb.east) [anchor=west, xshift=30pt, fill=red, draw=black, rectangle, minimum width=5pt, minimum height=5pt] {};
+  \node (lina) at (poll.east) [anchor=west, xshift=20pt, fill=red, draw=black, rectangle, minimum width=5pt, minimum height=25pt] {};
+  \node (linba) at (lina.east) [anchor=west, xshift=20pt, yshift=7pt, fill=yellow, draw=black, rectangle, minimum width=5pt, minimum height=5pt] {};
+  \node (linbb) at (lina.east) [anchor=west, xshift=20pt, yshift=-7pt, fill=black, draw=black, rectangle, minimum width=5pt, minimum height=5pt] {};
+
+  % text
+  \node (tspec) at (spec.south) [align=center, anchor=north, text width=80pt, inner sep=10pt] {Mel-Spectrogram: $16 \times 30$};
+  \path let \p1=(tspec), \p2=(conva.south) in (\x2, \y1) node (tconvb) [inner sep=10pt, align=center, text width=80pt] {Feature maps: $4 \times (9 \times 23)$};
+  \path let \p1=(tspec), \p2=(convb.south) in (\x2, \y1) node (tconvb) [inner sep=10pt, align=center, text width=80pt] {Feature maps: $1 \times (1 \times 15)$};
+  \node at (poll.south) [align=center, anchor=north, inner sep=10pt] {$1$};
+  \node at (lina.south) [align=center, anchor=north, inner sep=10pt] {$10$};
+  \node at (linba.east) [anchor=west, inner sep=5pt] {Yellowhammer};
+  \node at (linbb.east) [anchor=west, inner sep=5pt] {Negative}; 
+    
+  % background
+  \begin{scope}[on background layer]
+    \node (imgbg) at (zero) [rectangle, fill=imagebg, minimum width=400pt, minimum height=150pt, rounded corners=10pt] {};
+    \foreach \x in {15, 10, ..., 5}
+    {
+      \fill [color=red, draw=black] ($ (conva.south west) + (\x pt, \x pt) $) rectangle ++(55pt, 20pt);
+    }
+  \end{scope}
 \end{tikzpicture}
 
 
