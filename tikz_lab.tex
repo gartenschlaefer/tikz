@@ -32,6 +32,9 @@
 % shapes?
 \usetikzlibrary{shapes.symbols}
 
+% trees
+\usetikzlibrary{trees}
+
 % remove page numbers
 \pagestyle{empty}
 
@@ -51,6 +54,10 @@
 \tikzset{circStyle/.style={circle, draw=blue!80!green!50!black, fill=blue!70!green!25!white, thick, inner sep=0pt, minimum size=1cm}}
 \tikzset{pre/.style={<-,shorten <=1pt,>={Stealth[round]},semithick}, post/.style={->,shorten >=1pt,>={Stealth[round]},semithick}}
 
+% trees
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=4.0cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=2cm]
+\tikzstyle{bag} = [align=center]
 
 % --
 % document
@@ -260,6 +267,16 @@
 \end{tikzpicture}
 
 
+\begin{tikzpicture}
+  % pattern
+  \node at (0, 0) [rectangle, minimum size=3cm, pattern=checkerboard, pattern color=red] {};
+  \node[draw=none, shade, top color=blue!40, bottom color=blue!5, rounded corners=6pt, blur shadow={shadow blur steps=2}] {A pretty box};
+
+  % pattern
+  \node at (5, 0) [rectangle, minimum size=3cm, pattern=checkerboard, pattern color=red] {};
+  \node[tape, draw=none,shade, top color=blue!40, bottom color=blue!5, rounded corners=1pt, blur shadow={shadow blur steps=10, shadow blur extra rounding=1.3pt}] at (5,0){Another pretty box};
+\end{tikzpicture}
+
 % transparency
 \begin{tikzpicture}[opacity=0.5]
   \draw [line width=5mm] (0, 0) -- (2, 2);
@@ -281,19 +298,6 @@
     \draw [line width=5mm, path fading=east, red] (3, 0) -- (5, 2);
     \draw [line width=5mm, path fading=east, blue] (5, 0) -- (3, 2);
   \end{scope}
-\end{tikzpicture}
-
-
-\begin{tikzpicture}
-
-  % pattern
-  \node at (0, 0) [rectangle, minimum size=3cm, pattern=checkerboard, pattern color=red] {};
-  \node[draw=none, shade, top color=blue!40, bottom color=blue!5, rounded corners=6pt, blur shadow={shadow blur steps=2}] {A pretty box};
-
-  % pattern
-  \node at (5, 0) [rectangle, minimum size=3cm, pattern=checkerboard, pattern color=red] {};
-  \node[tape, draw=none,shade, top color=blue!40, bottom color=blue!5, rounded corners=1pt, blur shadow={shadow blur steps=10, shadow blur extra rounding=1.3pt}] at (5,0){Another pretty box};
-
 \end{tikzpicture}
 
 
@@ -336,10 +340,25 @@
 
 % \begin{tikzpicture}[ animate/orbit/.style 2 args = { myself:shift = { along = { (0,0) circle [radius=#1] } sloped in #2s/10, repeats }} ] \node :color = {0s = "orange", 2s = "red", 4s = "orange", repeats} {Sun}; \begin{scope}[animate={orbit={2.5cm}{365}}] \node {Earth}; \node [animate={orbit={1cm}{28}}] {Moon}; \end{scope} \useasboundingbox (-3.8,-3.8) (3.8,3.8); \end{tikzpicture}
 
+\begin{tikzpicture}[grow=right, sloped]
+\node[bag] {}
+    child {
+        node[bag] {Not diseased\\ $\left( D^- \right)$} %% 1
+            edge from parent
+            node[below]  {$0.90$}
+    }
+    child {
+        node[bag] {Diseased\\ $\left( D^+ \right)$} %% 2
+            edge from parent
+            node[above] {Prevalence}
+            node[below]  {$0.10$}
+    };
+\end{tikzpicture}
+
 % --
 % soundscape circle
-%
-\scalebox{0.8}{
+
+\scalebox{0.6}{
 \begin{tikzpicture}
   \coordinate (zero) at (0, 0);
   \fill [color=vetmedgray!15, rounded corners=30pt] ([xshift=-10.5cm, yshift=-7cm]zero) rectangle ++(20, 15);
